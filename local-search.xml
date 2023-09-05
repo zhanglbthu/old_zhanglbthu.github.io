@@ -4,11 +4,94 @@
   
   
   <entry>
+    <title>Differentiable Rendering using RGBXY Derivatives and Optimal Transport</title>
+    <link href="/2023/09/04/differentiable-rendering/"/>
+    <url>/2023/09/04/differentiable-rendering/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Differentiable-Rendering-using-RGBXY-Derivatives-and-Optimal-Transport"><a href="#Differentiable-Rendering-using-RGBXY-Derivatives-and-Optimal-Transport" class="headerlink" title="Differentiable Rendering using RGBXY Derivatives and Optimal Transport"></a>Differentiable Rendering using RGBXY Derivatives and Optimal Transport</h1><span id="more"></span><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Traditional differentiable rendering approaches are usually hard to converge in inverse rendering optimizations, especially when initial and target object locations are not so close<br>We present a novel differentiable rendering method to address this problem</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>论文笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>论文笔记</tag>
+      
+      <tag>正向渲染</tag>
+      
+      <tag>可导渲染</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Neural Global Illumination:Interactive Indirect Illumination Prediction under Dynamic Area Lights</title>
+    <link href="/2023/09/04/neural-global/"/>
+    <url>/2023/09/04/neural-global/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Neural-Global-Illumination-Interactive-Indirect-Illumination-Prediction-under-Dynamic-Area-Lights"><a href="#Neural-Global-Illumination-Interactive-Indirect-Illumination-Prediction-under-Dynamic-Area-Lights" class="headerlink" title="Neural Global Illumination:Interactive Indirect Illumination Prediction under Dynamic Area Lights"></a>Neural Global Illumination:Interactive Indirect Illumination Prediction under Dynamic Area Lights</h1><span id="more"></span><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>We propose neural global illumination, a novel method for fast rendering full global illumination in static scenes with dynamic viewpoint and area lighting<br>The key idea of our method is to utilize a deep rendering network to model the complex mapping from each shading point to global illumination</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Classic offline rendering methods such as path tracing and photon mapping can achieve photorealistic rendering quality. However, these methods are time-consuming and take minutes or even hours to render a single noise-free frame which makes them not suitable for interactive applications<br>We propose neural global illumination for generating rich global illumination effects in static scenes under dynamic area light sources<br>The motivation of our method is to reduce the gap between offline and interactive methods by applying deep learning to the global illumination problem<br>The key idea of our method is to utilize a deep neural network to represent the complex mapping from input scene information (including attributes of each shading point, the viewpoint, and the incident lighting information) to global illumination</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>论文笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>论文笔记</tag>
+      
+      <tag>正向渲染</tag>
+      
+      <tag>深度学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>CG</title>
+    <link href="/2023/09/04/CG%E7%94%B3%E8%AF%B7/"/>
+    <url>/2023/09/04/CG%E7%94%B3%E8%AF%B7/</url>
+    
+    <content type="html"><![CDATA[<p>cg申请资料</p><span id="more"></span><h1 id="CG"><a href="#CG" class="headerlink" title="CG"></a>CG</h1><h2 id="申请经验分享"><a href="#申请经验分享" class="headerlink" title="申请经验分享"></a>申请经验分享</h2><h3 id="知乎转载"><a href="#知乎转载" class="headerlink" title="知乎转载"></a>知乎转载</h3><p><a href="https://zhuanlan.zhihu.com/p/475751340">2022 Fall CS PhD申请总结</a></p><h2 id="CSRankings选校"><a href="#CSRankings选校" class="headerlink" title="CSRankings选校"></a>CSRankings选校</h2><h3 id="Stanford-University"><a href="#Stanford-University" class="headerlink" title="Stanford University"></a>Stanford University</h3><ul><li>Gordon Wetzstein<ul><li><a href="https://stanford.edu/~gordonwz/">Gordon Wetzstein</a></li><li>next-generation imaging, wearable computing, and neural rendering systems</li></ul></li><li>Doug James<ul><li><a href="https://profiles.stanford.edu/doug-james">Doug James</a></li><li>computer graphics, computer sound, physically based modeling and animation, and reduced-order physics models</li></ul></li><li>Pat Hanrahan<ul><li><a href="https://graphics.stanford.edu/~hanrahan/">Pat Hanrahan</a></li><li>visualization, graphics systems and architectures, rendering algorithms</li></ul></li><li>Kayvon Fatahalian<ul><li><a href="http://graphics.stanford.edu/~kayvonf/">Kayvon Fatahalian</a></li><li>High-performance simulation of virtual environments for “AI training”, New applications based on analyzing big video data, Human-in-the-loop, interactive AI</li></ul></li></ul><h3 id="Massachusetts-Institute-of-Technology"><a href="#Massachusetts-Institute-of-Technology" class="headerlink" title="Massachusetts Institute of Technology"></a>Massachusetts Institute of Technology</h3><ul><li>Frédo Durand<ul><li><a href="https://people.csail.mit.edu/fredo/">Frédo Durand</a></li><li>synthetic image generation, computational photography</li></ul></li><li>Jonathan Ragan-Kelley<ul><li><a href="https://people.csail.mit.edu/jrk/">Jonathan Ragan-Kelley</a></li><li>high-efficiency computer graphics, at the intersection of graphics with systems, architecture, and compilers</li></ul></li></ul><h3 id="Univ-of-California-Santa-Barbara"><a href="#Univ-of-California-Santa-Barbara" class="headerlink" title="Univ. of California - Santa Barbara"></a>Univ. of California - Santa Barbara</h3><ul><li>Lingqi Yan<ul><li><a href="https://sites.cs.ucsb.edu/~lingqi/">Lingqi Yan</a></li><li>physically-based &#x2F; image-based rendering, real-time ray tracing and realistic appearance modeling &#x2F; acquisition</li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>申请</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>图形学选校 申请经验</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Unbiased Caustics Rendering Guided by Representative Specular Paths</title>
     <link href="/2023/09/01/Paths/"/>
     <url>/2023/09/01/Paths/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h1 id="Unbiased-Caustics-Rendering-Guided-by-Representative-Specular-Paths"><a href="#Unbiased-Caustics-Rendering-Guided-by-Representative-Specular-Paths" class="headerlink" title="Unbiased Caustics Rendering Guided by Representative Specular Paths"></a>Unbiased Caustics Rendering Guided by Representative Specular Paths</h1><span id="more"></span><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Rendering caustics in computer graphics is still challenging: they correspond to high luminous intensity focused over a small area. Finding the paths that contribute to this small area is difficult<br>We present a novel path guiding approach to enable reliable rendering of caustics</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Our key idea is to use representative specular paths as a proxy to guide sampling for rendering caustics, so that the difficult paths can be found quickly and exhaustively<br>Contributions:</p><ul><li>a path guiding approach via representative specular paths</li><li>a relaxed path cut approach to represent light transport among glossy surfaces</li><li>an SG-based representation to approximate the contribution from a representative specular path</li><li>a spatial reuse strategy combined with a parallax-aware representation to improve the performance</li></ul>]]></content>
     
     
     <categories>

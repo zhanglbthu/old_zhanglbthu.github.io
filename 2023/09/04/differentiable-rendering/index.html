@@ -16,27 +16,28 @@
   <meta name="author" content="Libo Zhang">
   <meta name="keywords" content="computer graphics">
   
-    <meta name="description" content="Unbiased Caustics Rendering Guided by Representative Specular Paths">
+    <meta name="description" content="Differentiable Rendering using RGBXY Derivatives and Optimal Transport">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unbiased Caustics Rendering Guided by Representative Specular Paths">
-<meta property="og:url" content="http://example.com/2023/09/01/Paths/index.html">
+<meta property="og:title" content="Differentiable Rendering using RGBXY Derivatives and Optimal Transport">
+<meta property="og:url" content="http://example.com/2023/09/04/differentiable-rendering/index.html">
 <meta property="og:site_name" content="GraphicsQuest">
-<meta property="og:description" content="Unbiased Caustics Rendering Guided by Representative Specular Paths">
+<meta property="og:description" content="Differentiable Rendering using RGBXY Derivatives and Optimal Transport">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/unbiased.jpg">
-<meta property="article:published_time" content="2023-09-01T00:53:26.000Z">
-<meta property="article:modified_time" content="2023-09-04T03:59:16.767Z">
+<meta property="og:image" content="http://example.com/img/dru.jpg">
+<meta property="article:published_time" content="2023-09-04T03:48:22.000Z">
+<meta property="article:modified_time" content="2023-09-04T03:59:23.770Z">
 <meta property="article:author" content="Libo Zhang">
 <meta property="article:tag" content="论文笔记">
 <meta property="article:tag" content="正向渲染">
+<meta property="article:tag" content="可导渲染">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/unbiased.jpg">
+<meta name="twitter:image" content="http://example.com/img/dru.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Unbiased Caustics Rendering Guided by Representative Specular Paths - GraphicsQuest</title>
+  <title>Differentiable Rendering using RGBXY Derivatives and Optimal Transport - GraphicsQuest</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -241,7 +242,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Unbiased Caustics Rendering Guided by Representative Specular Paths"></span>
+            <span id="subtitle" data-typed-text="Differentiable Rendering using RGBXY Derivatives and Optimal Transport"></span>
           
         </div>
 
@@ -257,8 +258,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-01 08:53" pubdate>
-          2023年9月1日 早上
+        <time datetime="2023-09-04 11:48" pubdate>
+          2023年9月4日 中午
         </time>
       </span>
     
@@ -269,7 +270,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          759 字
+          305 字
         
       </span>
     
@@ -280,7 +281,7 @@
         
         
         
-          7 分钟
+          3 分钟
         
       </span>
     
@@ -325,7 +326,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Unbiased Caustics Rendering Guided by Representative Specular Paths</h1>
+            <h1 id="seo-header">Differentiable Rendering using RGBXY Derivatives and Optimal Transport</h1>
             
               <p class="note note-info">
                 
@@ -338,16 +339,9 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Unbiased-Caustics-Rendering-Guided-by-Representative-Specular-Paths"><a href="#Unbiased-Caustics-Rendering-Guided-by-Representative-Specular-Paths" class="headerlink" title="Unbiased Caustics Rendering Guided by Representative Specular Paths"></a>Unbiased Caustics Rendering Guided by Representative Specular Paths</h1><span id="more"></span>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Rendering caustics in computer graphics is still challenging: they correspond to high luminous intensity focused over a small area. Finding the paths that contribute to this small area is difficult<br>We present a novel path guiding approach to enable reliable rendering of caustics</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Our key idea is to use representative specular paths as a proxy to guide sampling for rendering caustics, so that the difficult paths can be found quickly and exhaustively<br>Contributions:</p>
-<ul>
-<li>a path guiding approach via representative specular paths</li>
-<li>a relaxed path cut approach to represent light transport among glossy surfaces</li>
-<li>an SG-based representation to approximate the contribution from a representative specular path</li>
-<li>a spatial reuse strategy combined with a parallax-aware representation to improve the performance</li>
-</ul>
-
+                <h1 id="Differentiable-Rendering-using-RGBXY-Derivatives-and-Optimal-Transport"><a href="#Differentiable-Rendering-using-RGBXY-Derivatives-and-Optimal-Transport" class="headerlink" title="Differentiable Rendering using RGBXY Derivatives and Optimal Transport"></a>Differentiable Rendering using RGBXY Derivatives and Optimal Transport</h1><span id="more"></span>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Traditional differentiable rendering approaches are usually hard to converge in inverse rendering optimizations, especially when initial and target object locations are not so close<br>We present a novel differentiable rendering method to address this problem</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2>
                 
               </div>
             
@@ -384,6 +378,8 @@
       
         <a href="/tags/%E6%AD%A3%E5%90%91%E6%B8%B2%E6%9F%93/" class="print-no-link">#正向渲染</a>
       
+        <a href="/tags/%E5%8F%AF%E5%AF%BC%E6%B8%B2%E6%9F%93/" class="print-no-link">#可导渲染</a>
+      
     </div>
   
 </div>
@@ -394,8 +390,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Unbiased Caustics Rendering Guided by Representative Specular Paths</div>
-      <div>http://example.com/2023/09/01/Paths/</div>
+      <div>Differentiable Rendering using RGBXY Derivatives and Optimal Transport</div>
+      <div>http://example.com/2023/09/04/differentiable-rendering/</div>
     </div>
     <div class="license-meta">
       
@@ -407,7 +403,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月1日</div>
+          <div>2023年9月4日</div>
         </div>
       
       
@@ -439,18 +435,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/04/CG%E7%94%B3%E8%AF%B7/" title="CG">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CG</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/01/%E5%A4%A7%E4%B8%80%E5%A4%A7%E4%BA%8C%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93/" title="大一大二观影总结">
-                        <span class="hidden-mobile">大一大二观影总结</span>
+                      <a href="/2023/09/04/neural-global/" title="Neural Global Illumination:Interactive Indirect Illumination Prediction under Dynamic Area Lights">
+                        <span class="hidden-mobile">Neural Global Illumination:Interactive Indirect Illumination Prediction under Dynamic Area Lights</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
