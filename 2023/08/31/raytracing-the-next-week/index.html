@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/tnw.jpg">
 <meta property="article:published_time" content="2023-08-31T01:52:25.000Z">
-<meta property="article:modified_time" content="2023-09-03T08:24:00.542Z">
+<meta property="article:modified_time" content="2023-09-06T13:04:11.038Z">
 <meta property="article:author" content="Libo Zhang">
 <meta property="article:tag" content="图形学学习笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -279,7 +279,7 @@
         
         
         
-          151 分钟
+          152 分钟
         
       </span>
     
@@ -329,7 +329,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月3日 下午
+                    本文最后更新于：2023年9月6日 晚上
                   
                 
               </p>
@@ -411,6 +411,7 @@
 <h2 id="5-Perlin-Noise"><a href="#5-Perlin-Noise" class="headerlink" title="5. Perlin Noise"></a>5. Perlin Noise</h2><h3 id="Introduction-3"><a href="#Introduction-3" class="headerlink" title="Introduction"></a>Introduction</h3><p><img src="/img/perlin.jpg" srcset="/img/loading.gif" lazyload alt="image"></p>
 <blockquote><p>It takes a 3D point as input and always returns the same randomish number. Nearby points return similar numbers</p>
 </blockquote>
+<p>关于noise的详细介绍可以参考我的另一篇博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41971087/article/details/118811796">PBRT-Noise</a></p>
 <h3 id="5-1-Using-Blocks-of-Random-Numbers"><a href="#5-1-Using-Blocks-of-Random-Numbers" class="headerlink" title="5.1 Using Blocks of Random Numbers"></a>5.1 Using Blocks of Random Numbers</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// ranfloat: a big array of random doubles</span><br><span class="hljs-comment">// perm_x, perm_y, perm_z: arrays of random integers</span><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">noise</span><span class="hljs-params">(<span class="hljs-type">const</span> point3&amp; p)</span> <span class="hljs-type">const</span> </span>&#123;<br>    <br>    <span class="hljs-keyword">auto</span> i = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(<span class="hljs-number">4</span>*p.<span class="hljs-built_in">x</span>()) &amp; <span class="hljs-number">255</span>;<br>    <span class="hljs-keyword">auto</span> j = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(<span class="hljs-number">4</span>*p.<span class="hljs-built_in">y</span>()) &amp; <span class="hljs-number">255</span>;<br>    <span class="hljs-keyword">auto</span> k = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(<span class="hljs-number">4</span>*p.<span class="hljs-built_in">z</span>()) &amp; <span class="hljs-number">255</span>;<br><br>    <span class="hljs-keyword">return</span> ranfloat[perm_x[i] ^ perm_y[j] ^ perm_z[k]];<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>这种组合查找方式可以产生连续和平滑的噪声效果。 </p>
 <h3 id="5-2-Smoothing-out-the-Result"><a href="#5-2-Smoothing-out-the-Result" class="headerlink" title="5.2 Smoothing out the Result"></a>5.2 Smoothing out the Result</h3><p>要使结果平滑，可以采用线性插值的方式。</p>
