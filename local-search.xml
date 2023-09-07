@@ -4,11 +4,65 @@
   
   
   <entry>
+    <title>raytracing-rest-of-your-life</title>
+    <link href="/2023/09/07/rol/"/>
+    <url>/2023/09/07/rol/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Ray-Tracing-The-Rest-Of-Your-Life"><a href="#Ray-Tracing-The-Rest-Of-Your-Life" class="headerlink" title="Ray Tracing: The Rest Of Your Life"></a>Ray Tracing: The Rest Of Your Life</h1><span id="more"></span><h2 id="1-Overview"><a href="#1-Overview" class="headerlink" title="1.Overview"></a>1.Overview</h2><h2 id="2-A-Simple-Monte-Carlo-Program"><a href="#2-A-Simple-Monte-Carlo-Program" class="headerlink" title="2.A Simple Monte Carlo Program"></a>2.A Simple Monte Carlo Program</h2><p>有两类随机算法：Monte Carlo和Las Vegas</p><ul><li>Las Vegas：总是给出正确的结果，但是运行时间是随机的</li><li>Monte Carlo：总是在有限时间内给出结果，但是结果可能是错误的<br>Monte Carlo算法给出一种统计评估，运行时间越久，估计结果越准确</li></ul><h3 id="2-1-Estimating-Pi"><a href="#2-1-Estimating-Pi" class="headerlink" title="2.1 Estimating Pi"></a>2.1 Estimating Pi</h3><p>在[-1,1]x[-1,1]的正方形内随机生成N个点，计算落在圆内的点的个数，用这个比例乘以4就是$\pi$的估计值</p><h3 id="2-2-Showing-Convergence"><a href="#2-2-Showing-Convergence" class="headerlink" title="2.2 Showing Convergence"></a>2.2 Showing Convergence</h3><p>把程序改成永久运行，我们可以很快地接近$\pi$，然后慢慢地逼近它</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>图形学学习笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Neural Layered BRDFs</title>
+    <link href="/2023/09/07/nlb/"/>
+    <url>/2023/09/07/nlb/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Neural-Layered-BRDFs"><a href="#Neural-Layered-BRDFs" class="headerlink" title="Neural Layered BRDFs"></a>Neural Layered BRDFs</h1><span id="more"></span><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>许多常见的材质具有多层结构。用蒙特卡洛方法模拟光线传播可以得到准确的结果，但会导致high variance and cost<br>我们建议在神经空间中处理分层结构，通过提出的表示神经网络将brdf压缩成latent codes，然后通过layering network对这些latent vector进行学习后的分层操作</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>多层材质的BRDFs比单层材质的要复杂很多，因为光线可能会在离开表面之前在不同层之间弹射多次<br>蒙特卡洛方法较为准确但会导致high variance and cost，其他方法要么不够准确要么需要大量的内存占用<br>近年来神经网络极大地减少了内存占用，成功地使SVBRDF和BTF在渲染中可用，但它们都没有考虑多层材质<br>我们建议用一个潜在空间表示分析和测量的brdf，然后用分层网络在潜在向量之间进行分层操作</p><h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul><li>Neural based SVBRDF&#x2F;BTF&#x2F;BRDF compression<ul><li>specialized methods：一个神经网络仅表示一种材质&#x2F;BRDF，渲染结果质量很高，但存储开销很大，很难操作</li><li>generalized methods：以降低质量为代价，提出了一种统一的模型。但与我们方法相比它们在高镜面材质上的表现不好</li></ul></li><li>BRDF layering operations<ul><li><blockquote><p>BRDF（Bidirectional Reflectance Distribution Function）图层操作是在计算机图形学中用于模拟复杂材质外观的技术之一。这些操作允许开发人员将多个BRDF（通常是不同的材质属性或表面层）组合在一起，以模拟复杂材质的效果，例如具有镶嵌的镜面反射、漫反射和透射的材质。</p></blockquote></li><li>蒙特卡洛方法可以产生高质量的结果，我们把它作为ground truth，但random walks会产生噪声。我们的分层结果和基于蒙特卡洛的方法非常接近，但避免了昂贵的随机漫步和额外的方差(噪声)</li></ul></li></ul><h2 id="NEURAL-BRDF-REPRESENTATION-AND-LAYERING"><a href="#NEURAL-BRDF-REPRESENTATION-AND-LAYERING" class="headerlink" title="NEURAL BRDF REPRESENTATION AND LAYERING"></a>NEURAL BRDF REPRESENTATION AND LAYERING</h2><h3 id="Overview-and-formulation"><a href="#Overview-and-formulation" class="headerlink" title="Overview and formulation"></a>Overview and formulation</h3><p>$\textbf{Representation}$<br>首先将任意BRDF压缩成一个紧凑的神经表示<br>$$\begin{aligned}<br>f(\omega_i,\omega_o)\xrightarrow{N_{rep}}V_f<br>\end{aligned}$$<br>$V_f$:latent vector，$N_{rep}$:representation projecting operator<br>$\textbf{Layering}$<br>当BRDFs被表示为latent vectors后，我们把他们当作运算对象，提供一个作用于它们的分层操作<br>$$\begin{aligned}<br>{V_{top},V_{bottom},A,\sigma_T}\xrightarrow{N_{layering}}V_{layered}<br>\end{aligned}$$<br>$V_{top},V_{bottom}$:依次表示上下层BRDF的latent vector<br>$A,\sigma_T$:两层之间参与介质的single scattering albedo和extinction coefficient</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>论文笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>论文笔记</tag>
+      
+      <tag>正向渲染</tag>
+      
+      <tag>神经网络</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>PBRT-Noise</title>
     <link href="/2023/09/06/noise/"/>
     <url>/2023/09/06/noise/</url>
     
-    <content type="html"><![CDATA[<h1 id="pbrt10-6-Noise"><a href="#pbrt10-6-Noise" class="headerlink" title="pbrt10.6 Noise"></a>pbrt10.6 Noise</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="pbrt10-6-Noise"><a href="#pbrt10-6-Noise" class="headerlink" title="pbrt10.6 Noise"></a>pbrt10.6 Noise</h1><h2 id="10-6-1-Perlin-Noise"><a href="#10-6-1-Perlin-Noise" class="headerlink" title="10.6.1 Perlin Noise"></a>10.6.1 Perlin Noise</h2><ul><li>在$(x,y,z)$整数格点值为0</li><li>它的变化来自于每个格点上的梯度向量，这些梯度向量决定了格点间如何平滑地插值<br><img src="/img/pbrt/perlin.png" alt="perlin noise"><br><img src="/img/pbrt/perlin_ball.png" alt="ball with perlin noise"><br>实现主要三步：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">float</span> <span class="hljs-title">Noise</span><span class="hljs-params">(<span class="hljs-type">float</span> x, <span class="hljs-type">float</span> y, <span class="hljs-type">float</span> z)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//1. compute noise cell coordinates and offsets</span><br>    <span class="hljs-comment">//2. compute gradient weights</span><br>    <span class="hljs-comment">//3. compute trilinear interpolation of weights</span><br>&#125;<br></code></pre></td></tr></table></figure></li></ul>]]></content>
     
     
     <categories>
