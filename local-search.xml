@@ -4,11 +4,24 @@
   
   
   <entry>
+    <title>rendering</title>
+    <link href="/2023/09/07/rendering/"/>
+    <url>/2023/09/07/rendering/</url>
+    
+    <content type="html"><![CDATA[<h1 id="What-is-rendering"><a href="#What-is-rendering" class="headerlink" title="What is rendering?"></a>What is rendering?</h1><h2 id="正向渲染"><a href="#正向渲染" class="headerlink" title="正向渲染"></a>正向渲染</h2><h3 id="光线追踪"><a href="#光线追踪" class="headerlink" title="光线追踪"></a>光线追踪</h3><p>可以实现全局光照</p><h3 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h3><h2 id="逆向渲染"><a href="#逆向渲染" class="headerlink" title="逆向渲染"></a>逆向渲染</h2><p>可以应用于三维重建，新视角合成……</p><h3 id="可微渲染"><a href="#可微渲染" class="headerlink" title="可微渲染"></a>可微渲染</h3><h3 id="神经渲染"><a href="#神经渲染" class="headerlink" title="神经渲染"></a>神经渲染</h3>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>raytracing-rest-of-your-life</title>
     <link href="/2023/09/07/rol/"/>
     <url>/2023/09/07/rol/</url>
     
-    <content type="html"><![CDATA[<h1 id="Ray-Tracing-The-Rest-Of-Your-Life"><a href="#Ray-Tracing-The-Rest-Of-Your-Life" class="headerlink" title="Ray Tracing: The Rest Of Your Life"></a>Ray Tracing: The Rest Of Your Life</h1><span id="more"></span><h2 id="1-Overview"><a href="#1-Overview" class="headerlink" title="1.Overview"></a>1.Overview</h2><h2 id="2-A-Simple-Monte-Carlo-Program"><a href="#2-A-Simple-Monte-Carlo-Program" class="headerlink" title="2.A Simple Monte Carlo Program"></a>2.A Simple Monte Carlo Program</h2><p>有两类随机算法：Monte Carlo和Las Vegas</p><ul><li>Las Vegas：总是给出正确的结果，但是运行时间是随机的</li><li>Monte Carlo：总是在有限时间内给出结果，但是结果可能是错误的<br>Monte Carlo算法给出一种统计评估，运行时间越久，估计结果越准确</li></ul><h3 id="2-1-Estimating-Pi"><a href="#2-1-Estimating-Pi" class="headerlink" title="2.1 Estimating Pi"></a>2.1 Estimating Pi</h3><p>在[-1,1]x[-1,1]的正方形内随机生成N个点，计算落在圆内的点的个数，用这个比例乘以4就是$\pi$的估计值</p><h3 id="2-2-Showing-Convergence"><a href="#2-2-Showing-Convergence" class="headerlink" title="2.2 Showing Convergence"></a>2.2 Showing Convergence</h3><p>把程序改成永久运行，我们可以很快地接近$\pi$，然后慢慢地逼近它</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Ray-Tracing-The-Rest-Of-Your-Life"><a href="#Ray-Tracing-The-Rest-Of-Your-Life" class="headerlink" title="Ray Tracing: The Rest Of Your Life"></a>Ray Tracing: The Rest Of Your Life</h1><span id="more"></span><h2 id="1-Overview"><a href="#1-Overview" class="headerlink" title="1.Overview"></a>1.Overview</h2><h2 id="2-A-Simple-Monte-Carlo-Program"><a href="#2-A-Simple-Monte-Carlo-Program" class="headerlink" title="2.A Simple Monte Carlo Program"></a>2.A Simple Monte Carlo Program</h2><p>有两类随机算法：Monte Carlo和Las Vegas</p><ul><li>Las Vegas：总是给出正确的结果，但是运行时间是随机的(快速排序)</li><li>Monte Carlo：总是在有限时间内给出结果，但是结果可能是错误的</li></ul><p>Monte Carlo算法给出一种统计评估，运行时间越久，估计结果越准确</p><h3 id="2-1-Estimating-Pi"><a href="#2-1-Estimating-Pi" class="headerlink" title="2.1 Estimating Pi"></a>2.1 Estimating Pi</h3><p>在[-1,1]x[-1,1]的正方形内随机生成N个点，计算落在圆内的点的个数，用这个比例乘以4就是$\pi$的估计值</p><h3 id="2-2-Showing-Convergence"><a href="#2-2-Showing-Convergence" class="headerlink" title="2.2 Showing Convergence"></a>2.2 Showing Convergence</h3><p>把程序改成永久运行，我们可以很快地接近$\pi$，然后慢慢地逼近它</p><h3 id="2-3-Stratified-Samples-Jittering"><a href="#2-3-Stratified-Samples-Jittering" class="headerlink" title="2.3 Stratified Samples (Jittering)"></a>2.3 Stratified Samples (Jittering)</h3><p>Diminishing Returns</p><blockquote><p>递减收益：在投入更多的劳动力或资本后，产出增长的速度会逐渐减缓，最终无法与投入成正比。</p></blockquote><p>这是Monte Carlo算法最差的情况，每一次采样的帮助都不如上一次的。我们可以通过分层采样减缓这种情况<br>我们在网格中每个格子内选取一个样本而不是随机采样<br><img src="/img/stratify.jpg" alt="sampling areas"><br>分层方法不仅效果更好，收敛速度也更快。然而，这种优势会随着问题的维数增加而减小<br>Curse of Dimensionality</p><blockquote><p>维数灾难：在多维系统分析中由于可用数据的稀疏性而引起的问题。<br>· The curse of dimensionality makes it difficult to analyze multidimensional systems due to the sparse nature of the available data.<br>维数灾难使得由于可用数据的稀疏性，分析多维系统变得困难。</p></blockquote><p>光线追踪就是一个高维的算法，每次反射新增两个维度$\theta,\phi$<br>作为过渡，我们将对每个像素周围的采样位置进行分层<br><img src="/img/riw/nos.png" alt="no stratified samples"><br><img src="/img/riw/withs.png" alt="stratified samples"><br>分层采样之后，在盒子和平面边缘有更锋利的对比，在频率变化较高的地区，这种影响将更为明显</p>]]></content>
     
     
     <categories>
