@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/rol.jpg">
 <meta property="article:published_time" content="2023-09-07T02:58:52.000Z">
-<meta property="article:modified_time" content="2023-09-09T15:38:21.031Z">
+<meta property="article:modified_time" content="2023-09-11T07:42:49.782Z">
 <meta property="article:author" content="Libo Zhang">
 <meta property="article:tag" content="图形学学习笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -268,7 +268,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          3.6k 字
         
       </span>
     
@@ -279,7 +279,7 @@
         
         
         
-          23 分钟
+          30 分钟
         
       </span>
     
@@ -329,7 +329,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月9日 晚上
+                    本文最后更新于：2023年9月11日 下午
                   
                 
               </p>
@@ -355,7 +355,11 @@
 <p>光线追踪就是一个高维的算法，每次反射新增两个维度$\theta,\phi$<br>作为过渡，我们将对每个像素周围的采样位置进行分层<br><img src="/img/riw/nos.png" srcset="/img/loading.gif" lazyload alt="no stratified samples"><br><img src="/img/riw/withs.png" srcset="/img/loading.gif" lazyload alt="stratified samples"><br>分层采样之后，在盒子和平面边缘有更锋利的对比，在频率变化较高的地区，这种影响将更为明显</p>
 <h2 id="3-One-Dimensional-Monte-Carlo-Integration"><a href="#3-One-Dimensional-Monte-Carlo-Integration" class="headerlink" title="3. One Dimensional Monte Carlo Integration"></a>3. One Dimensional Monte Carlo Integration</h2><h3 id="3-1-Expected-Value"><a href="#3-1-Expected-Value" class="headerlink" title="3.1 Expected Value"></a>3.1 Expected Value</h3><p>$Y$的期望<br>$$\begin{aligned}<br>avarage(Y) &amp;&#x3D; E[Y] &#x3D; \frac{1}{N} \sum_{i&#x3D;0}^{N-1} y_i \newline<br>&amp;&#x3D; \frac{1}{N} \sum_{i&#x3D;0}^{N-1} f(x_i) \newline<br>&amp;&#x3D; E[F(X)]<br>\end{aligned}$$<br>如果$x_i$在区间$[a,b]$上连续，则$E[F(X)]$近似于连续函数$f(x’)$在区间$a&lt;x’&lt;b$上的平均值<br>$$\begin{aligned}<br>E[f(x’)|a&lt;x’&lt;b] &amp;\approx E[F(X) | X &#x3D; {x_i|a&lt;x_i&lt;b}] \newline<br>&amp;\approx E[y &#x3D; {f(x_i)|a&lt;x_i&lt;b}] \newline<br>&amp;\approx \frac{1}{N} \sum_{i&#x3D;0}^{N-1} f(x_i)<br>\end{aligned}$$<br>当$N\rightarrow\infty$时<br>$$\begin{aligned}<br>E[f(x’)|a&lt;x’&lt;b] &#x3D; lim_{N\rightarrow\infty} \frac{1}{N} \sum_{i&#x3D;0}^{N-1} f(x_i)<br>\end{aligned}$$<br>当采样点的数量足够多时，我们可以用输出结果的平均值来近似函数的期望值，这就是Monte Carlo算法<br>除了随机采样，我们可以选择平均划分的空间点<br>$$\begin{aligned}<br>x_i &#x3D; a+i\Delta x\newline<br>\Delta x &#x3D; \frac{b-a}{N}<br>\end{aligned}$$<br>期望值如下<br>$$\begin{aligned}<br>E[f(x’)|a&lt;x’&lt;b] &amp;\approx \frac{1}{N} \sum_{i&#x3D;0}^{N-1} f(x_i) \newline<br>&amp;&#x3D; \frac{\Delta x}{b-a} \sum_{i&#x3D;0}^{N-1} f(x_i) \newline<br>&amp;&#x3D; \frac{1}{b-a} \sum_{i&#x3D;0}^{N-1} f(x_i) \Delta x \newline<br>&amp;\approx \frac{1}{b-a} \int_a^b f(x) dx(N\rightarrow\infty)\newline<br>&amp;&#x3D; \frac{1}{b-a} area(f(x),a,b)<br>\end{aligned}$$<br>积分和蒙特卡洛方法都可以求特定区间的平均值<br>积分是求解无穷多个无限小区间的和的平均值，蒙特卡罗算法将通过求解区间内不断增加的随机抽样点的和来近似相同的平均值</p>
 <h3 id="3-2-Integrating-x²-example"><a href="#3-2-Integrating-x²-example" class="headerlink" title="3.2 Integrating x²(example)"></a>3.2 Integrating x²(example)</h3><h3 id="3-3-Density-Functions"><a href="#3-3-Density-Functions" class="headerlink" title="3.3 Density Functions"></a>3.3 Density Functions</h3><p>之前的ray_color算法存在一个主要的问题，较小的光源会产生非常大的噪声，这是因为我们的采样方法不能经常对这些光源进行采样<br>光源只有当光线射向它们时才被采样，但这对于面积较小的光源和较远的光源是比较困难的<br>对于任一给定的光线，我们经常从相机开始跟踪，通过场景，终止于光源；但我们可以尝试从光源开始跟踪，通过场景，终止于相机<br>对于后者中的任意一条光线，它会从光源出发，在多次弹射中被不同表面反射而变暗或上色，最终到达相机<br>如果我们强制使其弹射向相机，那么会损失中间多次弹射的过程<br>这种方法可以解决光源较小&#x2F;远时一个像素亮但周围像素暗的问题，但会导致所有像素都比较亮<br>我们可以通过降低特定采样点的权重调整过采样来解决这个问题<br>首先需要了解密度函数<br>Density Function<br><img src="/img/riw/histogram.jpg" srcset="/img/loading.gif" lazyload alt="histogram"><br>$$\begin{aligned}<br>Probability\ of\ bin\ i\ &amp;&#x3D;\ Density\ of\ Bin\ i\newline &amp;&#x3D; \frac{Number\ of\ items\ in\ Bin\ i}{Number\ of\ items\ total} \newline<br>\end{aligned}$$<br>PDF(Probability Density Function)是一个连续函数，可以对其进行积分来确定结果落在某个区间的概率</p>
-
+<h3 id="3-4-Constructing-a-PDF"><a href="#3-4-Constructing-a-PDF" class="headerlink" title="3.4 Constructing a PDF"></a>3.4 Constructing a PDF</h3><h3 id="3-5-Choosing-our-Samples"><a href="#3-5-Choosing-our-Samples" class="headerlink" title="3.5 Choosing our Samples"></a>3.5 Choosing our Samples</h3><p>Metropolis-Hastings Algorithm</p>
+<blockquote><p>In statistics and statistical physics, the Metropolis–Hastings algorithm is a Markov chain Monte Carlo (MCMC) method for obtaining a sequence of random samples from a probability distribution from which direct sampling is difficult. This sequence can be used to approximate the distribution (e.g. to generate a histogram) or to compute an integral (e.g. an expected value). Metropolis–Hastings and other MCMC algorithms are generally used for sampling from multi-dimensional distributions, especially when the number of dimensions is high. For single-dimensional distributions, there are usually other methods (e.g. adaptive rejection sampling) that can directly return independent samples from the distribution, and these are free from the problem of autocorrelated samples that is inherent in MCMC methods.</p>
+</blockquote>
+<h3 id="3-6-Approximating-Distributions"><a href="#3-6-Approximating-Distributions" class="headerlink" title="3.6 Approximating Distributions"></a>3.6 Approximating Distributions</h3><h3 id="3-7-Importance-Sampling"><a href="#3-7-Importance-Sampling" class="headerlink" title="3.7 Importance Sampling"></a>3.7 Importance Sampling</h3><h2 id="4-Monte-Carlo-Integration-on-the-Sphere-of-Directions"><a href="#4-Monte-Carlo-Integration-on-the-Sphere-of-Directions" class="headerlink" title="4. Monte Carlo Integration on the Sphere of Directions"></a>4. Monte Carlo Integration on the Sphere of Directions</h2><p><img src="/img/riw/sphere.jpg" srcset="/img/loading.gif" lazyload alt="sphere"></p>
+<h2 id="5-Light-Scattering"><a href="#5-Light-Scattering" class="headerlink" title="5. Light Scattering"></a>5. Light Scattering</h2><h3 id="5-1-Albedo"><a href="#5-1-Albedo" class="headerlink" title="5.1 Albedo"></a>5.1 Albedo</h3>
                 
               </div>
             
