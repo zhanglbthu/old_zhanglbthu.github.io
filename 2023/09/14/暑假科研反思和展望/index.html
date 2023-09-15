@@ -16,28 +16,27 @@
   <meta name="author" content="Libo Zhang">
   <meta name="keywords" content="computer graphics">
   
-    <meta name="description" content="Neural Layered BRDFs">
+    <meta name="description" content="动机因为想出去看看世界，换一个新的科研和生活环境，所以大二下有了出国读PHD的打算，外加选修过《计算机图形学基础》后对图形学知识比较感兴趣，于是在大二下学期结束后就联系了软院徐枫老师开始了第一段正式的科研经历。与早早打算出国读博的同学相比，第一次进组算是很晚了，但很幸运遇到了非常nice的老师和学长，在与他们一次次的交流中目标也越来越明确和坚定。本科的后半段一定要用效率和努力弥补差距，提升能力，希">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Neural Layered BRDFs">
-<meta property="og:url" content="http://example.com/2023/09/07/nlb/index.html">
+<meta property="og:title" content="大二暑假科研反思和展望">
+<meta property="og:url" content="http://example.com/2023/09/14/%E6%9A%91%E5%81%87%E7%A7%91%E7%A0%94%E5%8F%8D%E6%80%9D%E5%92%8C%E5%B1%95%E6%9C%9B/index.html">
 <meta property="og:site_name" content="GraphicsQuest">
-<meta property="og:description" content="Neural Layered BRDFs">
+<meta property="og:description" content="动机因为想出去看看世界，换一个新的科研和生活环境，所以大二下有了出国读PHD的打算，外加选修过《计算机图形学基础》后对图形学知识比较感兴趣，于是在大二下学期结束后就联系了软院徐枫老师开始了第一段正式的科研经历。与早早打算出国读博的同学相比，第一次进组算是很晚了，但很幸运遇到了非常nice的老师和学长，在与他们一次次的交流中目标也越来越明确和坚定。本科的后半段一定要用效率和努力弥补差距，提升能力，希">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/research/nlb.jpg">
-<meta property="article:published_time" content="2023-09-07T01:25:13.000Z">
-<meta property="article:modified_time" content="2023-09-07T02:28:03.101Z">
+<meta property="og:image" content="http://example.com/img/title/review&view.jpg">
+<meta property="article:published_time" content="2023-09-14T12:56:09.000Z">
+<meta property="article:modified_time" content="2023-09-15T06:49:01.027Z">
 <meta property="article:author" content="Libo Zhang">
-<meta property="article:tag" content="论文笔记">
-<meta property="article:tag" content="正向渲染">
-<meta property="article:tag" content="神经网络">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="逆向渲染">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/research/nlb.jpg">
+<meta name="twitter:image" content="http://example.com/img/title/review&view.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Neural Layered BRDFs - GraphicsQuest</title>
+  <title>大二暑假科研反思和展望 - GraphicsQuest</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -242,7 +241,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Neural Layered BRDFs"></span>
+            <span id="subtitle" data-typed-text="大二暑假科研反思和展望"></span>
           
         </div>
 
@@ -258,8 +257,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-07 09:25" pubdate>
-          2023年9月7日 上午
+        <time datetime="2023-09-14 20:56" pubdate>
+          2023年9月14日 晚上
         </time>
       </span>
     
@@ -270,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.8k 字
         
       </span>
     
@@ -281,7 +280,7 @@
         
         
         
-          12 分钟
+          16 分钟
         
       </span>
     
@@ -326,12 +325,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Neural Layered BRDFs</h1>
+            <h1 id="seo-header">大二暑假科研反思和展望</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月7日 上午
+                    本文最后更新于：2023年9月15日 下午
                   
                 
               </p>
@@ -339,23 +338,69 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Neural-Layered-BRDFs"><a href="#Neural-Layered-BRDFs" class="headerlink" title="Neural Layered BRDFs"></a>Neural Layered BRDFs</h1><span id="more"></span>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>许多常见的材质具有多层结构。用蒙特卡洛方法模拟光线传播可以得到准确的结果，但会导致high variance and cost<br>我们建议在神经空间中处理分层结构，通过提出的表示神经网络将brdf压缩成latent codes，然后通过layering network对这些latent vector进行学习后的分层操作</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>多层材质的BRDFs比单层材质的要复杂很多，因为光线可能会在离开表面之前在不同层之间弹射多次<br>蒙特卡洛方法较为准确但会导致high variance and cost，其他方法要么不够准确要么需要大量的内存占用<br>近年来神经网络极大地减少了内存占用，成功地使SVBRDF和BTF在渲染中可用，但它们都没有考虑多层材质<br>我们建议用一个潜在空间表示分析和测量的brdf，然后用分层网络在潜在向量之间进行分层操作</p>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
-<li>Neural based SVBRDF&#x2F;BTF&#x2F;BRDF compression<ul>
-<li>specialized methods：一个神经网络仅表示一种材质&#x2F;BRDF，渲染结果质量很高，但存储开销很大，很难操作</li>
-<li>generalized methods：以降低质量为代价，提出了一种统一的模型。但与我们方法相比它们在高镜面材质上的表现不好</li>
+                <h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><p>因为想出去看看世界，换一个新的科研和生活环境，所以大二下有了出国读PHD的打算，外加选修过《计算机图形学基础》后对图形学知识比较感兴趣，于是在大二下学期结束后就联系了软院徐枫老师开始了第一段正式的科研经历。<br>与早早打算出国读博的同学相比，第一次进组算是很晚了，但很幸运遇到了非常nice的老师和学长，在与他们一次次的交流中目标也越来越明确和坚定。<br>本科的后半段一定要用效率和努力弥补差距，提升能力，希望2025年3月前能收获一份理想的offer。</p>
+<h1 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h1><p>7月8日军训结束后呆在学校看了一周文献，跟徐老师确定要做人脸相关方向，回家待了两周之后就回到学校开始了正式的科研。</p>
+<h2 id="7-31-8-6-week1"><a href="#7-31-8-6-week1" class="headerlink" title="7.31-8.6(week1)"></a>7.31-8.6(week1)</h2><ul>
+<li>了解项目的基本情况</li>
+<li>阅读需要比较的两篇baseline论文<ul>
+<li>neural-head-avatar</li>
+<li>point-avatar</li>
 </ul>
 </li>
-<li>BRDF layering operations<ul>
-<li><blockquote><p>BRDF（Bidirectional Reflectance Distribution Function）图层操作是在计算机图形学中用于模拟复杂材质外观的技术之一。这些操作允许开发人员将多个BRDF（通常是不同的材质属性或表面层）组合在一起，以模拟复杂材质的效果，例如具有镶嵌的镜面反射、漫反射和透射的材质。</p>
-</blockquote></li>
-<li>蒙特卡洛方法可以产生高质量的结果，我们把它作为ground truth，但random walks会产生噪声。我们的分层结果和基于蒙特卡洛的方法非常接近，但避免了昂贵的随机漫步和额外的方差(噪声)</li>
+<li>连接实验室服务器</li>
+<li>学习ssh，miniconda3，tmux，zsh，vim等工具</li>
+<li>配置两篇论文的代码环境</li>
+<li>学习slam十四讲部分章节<ul>
+<li>三维空间刚体运动-四元数，相似、仿射、射影变换</li>
+<li>相机与图像</li>
 </ul>
 </li>
+<li>调整neural-head-avatar的训练参数，减少batch-size，防止显存溢出</li>
+<li>输出neural-head-avatar的mesh可视化</li>
+<li>用neural-head-avatar处理自己的数据集</li>
+<li>学习观察实验室GPU状态</li>
 </ul>
-<h2 id="NEURAL-BRDF-REPRESENTATION-AND-LAYERING"><a href="#NEURAL-BRDF-REPRESENTATION-AND-LAYERING" class="headerlink" title="NEURAL BRDF REPRESENTATION AND LAYERING"></a>NEURAL BRDF REPRESENTATION AND LAYERING</h2><h3 id="Overview-and-formulation"><a href="#Overview-and-formulation" class="headerlink" title="Overview and formulation"></a>Overview and formulation</h3><p>$\textbf{Representation}$<br>首先将任意BRDF压缩成一个紧凑的神经表示<br>$$\begin{aligned}<br>f(\omega_i,\omega_o)\xrightarrow{N_{rep}}V_f<br>\end{aligned}$$<br>$V_f$:latent vector，$N_{rep}$:representation projecting operator<br>$\textbf{Layering}$<br>当BRDFs被表示为latent vectors后，我们把他们当作运算对象，提供一个作用于它们的分层操作<br>$$\begin{aligned}<br>{V_{top},V_{bottom},A,\sigma_T}\xrightarrow{N_{layering}}V_{layered}<br>\end{aligned}$$<br>$V_{top},V_{bottom}$:依次表示上下层BRDF的latent vector<br>$A,\sigma_T$:两层之间参与介质的single scattering albedo和extinction coefficient</p>
+<h2 id="8-7-8-13-week2"><a href="#8-7-8-13-week2" class="headerlink" title="8.7-8.13(week2)"></a>8.7-8.13(week2)</h2><ul>
+<li>使用sshfs-win挂载服务器上的文件夹</li>
+<li>系统学习pytorch</li>
+<li>提取.ply文件</li>
+<li>尝试根据sdf和marching_cube算法输出point-avatar的mesh可视化</li>
+<li>根据.ply文件和Screened Poisson算法输出point-avatar的mesh可视化</li>
+</ul>
+<h2 id="8-14-8-20-week3"><a href="#8-14-8-20-week3" class="headerlink" title="8.14-8.20(week3)"></a>8.14-8.20(week3)</h2><ul>
+<li>根据IMavatar基于自己视频得到数据集</li>
+<li>第一遍详细阅读neural-head-avatar开源代码</li>
+<li>学习使用Tensorboard观察训练过程</li>
+<li>美化个人Github主页</li>
+</ul>
+<h2 id="8-21-8-27-week4"><a href="#8-21-8-27-week4" class="headerlink" title="8.21-8.27(week4)"></a>8.21-8.27(week4)</h2><ul>
+<li>根据facebook的multiface数据集进行框架改写</li>
+<li>将指定相机的拍摄数据组织为一个视频，用于后续的数据集生成</li>
+<li>neural-head-avatar项目固定相机内外参，跑通整个流程</li>
+</ul>
+<h2 id="8-28-9-3-week5"><a href="#8-28-9-3-week5" class="headerlink" title="8.28-9.3(week5)"></a>8.28-9.3(week5)</h2><p>小学期开始，进度放缓</p>
+<ul>
+<li>修复固定相机内外参遇到的bug：当pnp算法得到的translation中z为负时，无法得到图像<ul>
+<li>阅读opencv和pytorch3d文档，了解不同框架坐标系的区别</li>
+<li>初步修复：当出现上面所说情况时进行特殊处理，使渲染图像能得到较好的初值</li>
+</ul>
+</li>
+<li>改写neural-head-avatar的tracking部分，使其支持多视角输入</li>
+</ul>
+<h2 id="9-4-9-10-week6"><a href="#9-4-9-10-week6" class="headerlink" title="9.4-9.10(week6)"></a>9.4-9.10(week6)</h2><p>这一周跟另一个实验室的学长进行了交流，之后发邮件给另一个导师寻求交流机会，对于之后自己的科研方向比较迷茫…</p>
+<ul>
+<li>优化neural-head-avatar的tracking部分，保存结果加入多视角的rotations，translations，K和RT</li>
+</ul>
+<h2 id="9-11-9-17-week7"><a href="#9-11-9-17-week7" class="headerlink" title="9.11-9.17(week7)"></a>9.11-9.17(week7)</h2><p>跟上周发邮件的导师进行了交流，综合个人兴趣、能力、发paper难易程度、方向前景和国外研究生导师可选择面等因素，最终决定继续跟徐枫老师做人脸相关的科研。</p>
+<ul>
+<li>改写neural-head-avatar的optimizer部分，使其支持多视角输入</li>
+</ul>
+<h1 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h1><p>我很幸运，在一次次的偶然和必然中遇到了很多能力出众，包容耐心的老师和学长，在他们的引导下坚定了自己的科研方向和规划。同时，我还有关心我，支持我的父母，朋友以及健康的身体，这些都是我现阶段乃至一生中最宝贵的财富。<br>大三一年，一定有困难，有挫折，有迷茫和焦虑，但也一定有收获。<br>我一定会重拾大一大二刚入学时的热情与好奇，在自己选定的路上坚定不移地走下去！<br><img src="/img/road.jpg" srcset="/img/loading.gif" lazyload alt="whatever will be will be"></p>
+<blockquote><p>当<br>我和世界不一样<br>那就让我不一样<br>坚持对我来说<br>就是以刚克刚<br>我<br>如果对自己妥协<br>如果对自己说谎<br>即使别人原谅<br>我也不能原谅<br>最美的愿望<br>一定最疯狂<br>我就是我自己的神<br>在我活的地方</p>
+<p>我和我最后的倔强<br>握紧双手绝对不放<br>下一站是不是天堂<br>就算失望，不能绝望<br>我和我骄傲的倔强<br>我在风中大声地唱<br>这一次为自己疯狂<br>就这一次<br>我和我的倔强</p>
+<p>对<br>爱我的人别紧张<br>我的固执很善良<br>我的手越肮脏<br>眼神越是发光<br>你<br>不在乎我的过往<br>看到了我的翅膀<br>你说被火烧过<br>才能出现凤凰<br>逆风的方向<br>更适合飞翔<br>我不怕千万人阻挡<br>只怕自己投降</p>
+<p>我和我最后的倔强<br>握紧双手绝对不放<br>下一站是不是天堂<br>就算失望，不能绝望<br>我和我骄傲的倔强<br>我在风中大声地唱<br>这一次为自己疯狂<br>就这一次<br>我和我的倔强</p>
+</blockquote>
 
                 
               </div>
@@ -371,16 +416,6 @@
 <span class="category-chains">
   
   
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="category-chain-item">论文笔记</a>
-  
-  
-
-      </span>
-    
-  
 </span>
 
     </div>
@@ -389,11 +424,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="print-no-link">#论文笔记</a>
+        <a href="/tags/%E7%A7%91%E7%A0%94/" class="print-no-link">#科研</a>
       
-        <a href="/tags/%E6%AD%A3%E5%90%91%E6%B8%B2%E6%9F%93/" class="print-no-link">#正向渲染</a>
-      
-        <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="print-no-link">#神经网络</a>
+        <a href="/tags/%E9%80%86%E5%90%91%E6%B8%B2%E6%9F%93/" class="print-no-link">#逆向渲染</a>
       
     </div>
   
@@ -405,8 +438,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Neural Layered BRDFs</div>
-      <div>http://example.com/2023/09/07/nlb/</div>
+      <div>大二暑假科研反思和展望</div>
+      <div>http://example.com/2023/09/14/暑假科研反思和展望/</div>
     </div>
     <div class="license-meta">
       
@@ -418,7 +451,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月7日</div>
+          <div>2023年9月14日</div>
         </div>
       
       
@@ -445,29 +478,6 @@
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2023/09/07/rol/" title="raytracing-rest-of-your-life">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">raytracing-rest-of-your-life</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2023/09/06/noise/" title="PBRT-Noise">
-                        <span class="hidden-mobile">PBRT-Noise</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
               
             </div>
 
