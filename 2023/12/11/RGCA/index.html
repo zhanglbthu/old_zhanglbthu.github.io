@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/research/note.jpg">
 <meta property="article:published_time" content="2023-12-11T12:41:43.000Z">
-<meta property="article:modified_time" content="2023-12-12T10:31:57.918Z">
+<meta property="article:modified_time" content="2023-12-12T12:44:29.949Z">
 <meta property="article:author" content="Libo Zhang">
 <meta property="article:tag" content="论文笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -268,7 +268,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.1k 字
+          4.4k 字
         
       </span>
     
@@ -279,7 +279,7 @@
         
         
         
-          34 分钟
+          37 分钟
         
       </span>
     
@@ -395,13 +395,12 @@
 <h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><h3 id="Pipeline-module-1"><a href="#Pipeline-module-1" class="headerlink" title="Pipeline module 1"></a>Pipeline module 1</h3><h3 id="Apperance-Learned-Radiance-Transfer"><a href="#Apperance-Learned-Radiance-Transfer" class="headerlink" title="Apperance: Learned Radiance Transfer"></a>Apperance: Learned Radiance Transfer</h3><p>$c_k&#x3D;c_k^{diffuse}+c_k^{specular}(\omega_o)$<br>where $\omega_o$ is the viewing direction</p>
 <h4 id="Diffuse-Color"><a href="#Diffuse-Color" class="headerlink" title="Diffuse Color"></a>Diffuse Color</h4><p>$$\begin{aligned}<br>c_k^{diffuse} &amp;&#x3D; \rho_k\odot\int_{S^2}L(\omega_i)\odot d_k^i(\omega_i)d\omega_i \newline<br>&amp;&#x3D; \rho_k \odot \sum_{i&#x3D;1}^{(n+1)^2}L_i\odot d_k^i<br>\end{aligned}$$<br>$L&#x3D;\lbrace L_i \rbrace _{i&#x3D;1}^{(n+1)^2}$: the n-th order SH coefficients<br>$d_k&#x3D;\lbrace d_k^i \rbrace _{i&#x3D;1}^{(n+1)^2}$: the intrinsic radiance transfer function with $d_k^i \in \mathbb{R}^3$<br>$\rho_k \in \mathbb{R}^3$: a learnable albedo for each 3D Gaussian</p>
 <h4 id="Specular-Reflection"><a href="#Specular-Reflection" class="headerlink" title="Specular Reflection"></a>Specular Reflection</h4><p>for the view-dependent specular term, propose a normalized,angle-based spherical Gaussian<br>$$\begin{aligned}<br>G_s(p;q,\sigma) &#x3D; Ce^{-\frac{1}{2}(\frac{arccos(p\cdot q)}{\sigma})^2}<br>\end{aligned}$$<br>$q\in S^2$: the lobe axis<br>$p\in S^2$: the direction of evaluation<br>$C &#x3D; 1&#x2F;(\sqrt{2}\pi^{2&#x2F;3}\sigma)$: a normalization constant<br>$$\begin{aligned}<br>q_k&#x3D;2(\omega_k^o\cdot n_k)n_k-\omega_k^o<br>\end{aligned}$$<br>final color for the specular term of each 3D Gaussian<br>$$\begin{aligned}<br>c_k^{specular}(\omega_o) &#x3D; v_k(\omega_o)\int_{S^2}L(\omega_i)G_s(\omega_i;q_k,\sigma_k)d\omega_i<br>\end{aligned}$$<br>$v_k(\omega_o) \in (0,1)$: a learnable view-dependent visibility term </p>
-<h4 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h4><p>decode radiance transfer parameters using a view-independent decoder $D_{ci}$ and a view-dependent decoder $D_{cv}$<br>$$\begin{equation}<br>\lbrace d_k^c,d_k^m, \sigma_k \rbrace_{k&#x3D;1}^{M} &#x3D; D_{ci}(z,e_{\lbrace l,r\rbrace}; \Theta _{ci}) \newline<br>\end{equation}$$</p>
-<p>$$\begin{equation}<br>\lbrace \delta n_k, v_k \rbrace_{k&#x3D;1}^{M} &#x3D; D_{cv}(z,e_{\lbrace l,r\rbrace},\omega_o; \Theta _{cv})<br>\end{equation}$$</p>
-<!-- $$\begin{aligned}
-% \{ d_k^c,d_k^m, \sigma_k \}_{k=1}^{M} &= D_{ci}(z,e; \Theta _{ci}) \newline
-% \{\delta n_k, v_k \}_{k=1}^{M} &= D_{cv}(z,e,\omega_o; \Theta _{cv})
-\{ d_k^c,d_k^m, \sigma_k \}
-\end{aligned}$$ -->
+<h4 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h4><p>decode radiance transfer parameters using a view-independent decoder $D_{ci}$ and a view-dependent decoder $D_{cv}$</p>
+<p>$$\begin{align}<br>\lbrace d_k^c,d_k^m, \sigma_k \rbrace_{k&#x3D;1}^{M} &#x3D; D_{ci}(z,e_{\lbrace l,r\rbrace}; \Theta _{ci}) \newline<br>\end{align}$$</p>
+<p>$$\begin{align}<br>\lbrace \delta n_k, v_k \rbrace_{k&#x3D;1}^{M} &#x3D; D_{cv}(z,e_{\lbrace l,r\rbrace},\omega_o; \Theta _{cv})<br>\end{align}$$</p>
+<h3 id="Modification"><a href="#Modification" class="headerlink" title="Modification"></a>Modification</h3><h4 id="Decoder-1"><a href="#Decoder-1" class="headerlink" title="Decoder"></a>Decoder</h4><p>$$\begin{align}<br>\lbrace d_k^c,d_k^m, \sigma_k \rbrace_{k&#x3D;1}^{M} &#x3D; D_{ci}(\Theta _{ci}) \newline<br>\end{align}$$</p>
+<p>$$\begin{align}<br>\lbrace \delta n_k, v_k \rbrace_{k&#x3D;1}^{M} &#x3D; D_{cv}(\omega_o; \Theta _{cv})<br>\end{align}$$</p>
+<p>$\omega_o$: the viewing direction<br>$\Theta _{ci}$: the parameters of the view-independent decoder<br>$\Theta _{cv}$: the parameters of the view-dependent decoder</p>
 <h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Comparison-experiments"><a href="#Comparison-experiments" class="headerlink" title="Comparison experiments"></a>Comparison experiments</h3><h3 id="Ablation-studies"><a href="#Ablation-studies" class="headerlink" title="Ablation studies"></a>Ablation studies</h3><h2 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h2>
                 
               </div>
@@ -491,6 +490,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/12/16/%E6%89%98%E7%A6%8F%E5%86%99%E4%BD%9C01/" title="写作01">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">写作01</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
