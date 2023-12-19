@@ -4,6 +4,81 @@
   
   
   <entry>
+    <title>我爱你</title>
+    <link href="/2023/12/19/%E6%88%91%E7%88%B1%E4%BD%A0/"/>
+    <url>/2023/12/19/%E6%88%91%E7%88%B1%E4%BD%A0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="2023Fall-Week13"><a href="#2023Fall-Week13" class="headerlink" title="2023Fall-Week13"></a>2023Fall-Week13</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="学业"><a href="#学业" class="headerlink" title="学业"></a>学业</h3><h4 id="Done"><a href="#Done" class="headerlink" title="Done"></a>Done</h4><ul><li>《传热学》实验</li><li>《美术英语》pre</li><li>《自主研究探索》pre准备</li></ul><h4 id="To-Do"><a href="#To-Do" class="headerlink" title="To Do"></a>To Do</h4><ul><li>《自主研究探索》pre</li><li>《数值分析》编程实验</li><li>《影视欣赏》影评</li></ul><h3 id="科研"><a href="#科研" class="headerlink" title="科研"></a>科研</h3><h4 id="Done-1"><a href="#Done-1" class="headerlink" title="Done"></a>Done</h4><ul><li>并行合成blender数据集</li><li>尝试复现meta论文diffuse_color的计算</li></ul><h4 id="To-Do-1"><a href="#To-Do-1" class="headerlink" title="To Do"></a>To Do</h4><ul><li>剔除一些合成效果不佳的blender数据</li><li>降低生成envmap的分辨率，提升数据量</li><li>尝试使用SH旋转计算光照球谐系数</li><li>更改hash_decoder的final激活函数为softpuls</li><li>debug生成reasonable的漫反射效果</li></ul><h3 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h3><p>北京持续下雪<br><img src="/img/week/2023Fall-Week13/%E5%8C%97%E4%BA%AC%E7%9A%84%E9%9B%AA.jpg" alt="北京的雪"><br>看到了上海的流星<br><img src="/img/week/2023Fall-Week13/%E6%B5%81%E6%98%9F.jpg" alt="流星"><br>尝试圣诞黑巧，浓厚的黑巧克力口味<br><img src="/img/week/2023Fall-Week13/%E5%9C%A3%E8%AF%9E%E9%BB%91%E5%B7%A7.jpg" alt="圣诞黑巧"></p><h2 id="我爱你"><a href="#我爱你" class="headerlink" title="我爱你"></a>我爱你</h2><p><img src="/img/week/2023Fall-Week13/teaser.png" alt="我爱你"><br><img src="/img/week/2023Fall-Week13/%E7%94%BB.png" alt="画"><br><img src="/img/week/2023Fall-Week13/01.png" alt="剧照01"><br><img src="/img/week/2023Fall-Week13/02.png" alt="剧照02"><br>“不论到了何时，都不该失去爱的勇气和能量。”<br>自视泪点很高，但看这部影片时还是被纯粹，质朴的爱情感动到哭。<br>写这篇周记时情绪很低落，希望明天能重新振作起来。<br>我想每天给你说发生了什么，不止取得进步时的喜悦，还有内心短暂的脆弱，好吗？</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>周记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>周记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2023.12实验记录</title>
+    <link href="/2023/12/18/2023-12%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/"/>
+    <url>/2023/12/18/2023-12%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="2023-12试验记录"><a href="#2023-12试验记录" class="headerlink" title="2023.12试验记录"></a>2023.12试验记录</h1><span id="more"></span><h2 id="12-18"><a href="#12-18" class="headerlink" title="12.18"></a>12.18</h2><h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><p>基于tiny_cuda_nn实现漫反射效果</p><h3 id="setting"><a href="#setting" class="headerlink" title="setting"></a>setting</h3><ul><li>$c_k^{diffuse} &#x3D; \sum_{i&#x3D;1}^{(n+1)^2} L_i\odot d_k^i$</li></ul><h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><h3 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h3><h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>周记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>论文笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Real-time Neural Light Transport</title>
+    <link href="/2023/12/17/project/"/>
+    <url>/2023/12/17/project/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Paper-Title"><a href="#Paper-Title" class="headerlink" title="Paper Title"></a>Paper Title</h1><span id="more"></span><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><h3 id="Task"><a href="#Task" class="headerlink" title="Task"></a>Task</h3><h3 id="Technical-challenge-for-previous-work"><a href="#Technical-challenge-for-previous-work" class="headerlink" title="Technical challenge for previous work"></a>Technical challenge for previous work</h3><h3 id="Insight-Motivation"><a href="#Insight-Motivation" class="headerlink" title="Insight&#x2F;Motivation"></a>Insight&#x2F;Motivation</h3><h3 id="Technical-contributions"><a href="#Technical-contributions" class="headerlink" title="Technical contributions"></a>Technical contributions</h3><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="Task-and-application"><a href="#Task-and-application" class="headerlink" title="Task and application"></a>Task and application</h3><h3 id="Technical-challenge-for-previous-work-1"><a href="#Technical-challenge-for-previous-work-1" class="headerlink" title="Technical challenge for previous work"></a>Technical challenge for previous work</h3><h3 id="Our-pipeline"><a href="#Our-pipeline" class="headerlink" title="Our pipeline"></a>Our pipeline</h3><h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><h4 id="Environment-map"><a href="#Environment-map" class="headerlink" title="Environment map"></a>Environment map</h4><div align=center>    <img src="/img/research/env.png" width=80% height=80% alt="env" align=center />    <p><em>Figure 1: Environment map</em></p></div><p>Spherical Environment Map: 将环境光记录在一个球面上，每个点的颜色代表该方向的环境光颜色<br>Spherical Map: prone to distortion(top and bottom)<br>Cubic Map: a vector maps to cube point along that direction-&gt;much less distortion</p><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><h3 id="Pipeline-module-1"><a href="#Pipeline-module-1" class="headerlink" title="Pipeline module 1"></a>Pipeline module 1</h3><h3 id="Pipeline-module-2"><a href="#Pipeline-module-2" class="headerlink" title="Pipeline module 2"></a>Pipeline module 2</h3><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Comparison-experiments"><a href="#Comparison-experiments" class="headerlink" title="Comparison experiments"></a>Comparison experiments</h3><h3 id="Ablation-studies"><a href="#Ablation-studies" class="headerlink" title="Ablation studies"></a>Ablation studies</h3><h2 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>周记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>论文笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>写作01</title>
     <link href="/2023/12/16/%E6%89%98%E7%A6%8F%E5%86%99%E4%BD%9C01/"/>
     <url>/2023/12/16/%E6%89%98%E7%A6%8F%E5%86%99%E4%BD%9C01/</url>
